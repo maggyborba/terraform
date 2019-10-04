@@ -1,0 +1,2 @@
+# Vagrant provisioner using ansible_local will create "/tmp/vagrant-ansible/inventory/vagrant_ansible_local_inventory" to provision remote machine
+default ansible_connection=local

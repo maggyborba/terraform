@@ -1,0 +1,6 @@
+---
+ansible_user: vagrant
+# Required for sshpass to login using user and pass
+ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
+# Required for ansible to use python3 (Default is python2)
+ansible_python_interpreter: /usr/bin/python3

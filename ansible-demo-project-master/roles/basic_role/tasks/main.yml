@@ -1,0 +1,10 @@
+---
+- name: Basic pkgs stack
+  package:
+    name:
+      - vim
+      - git
+      - dnsutils
+      - sshpass
+    state: present
+    update_cache: yes

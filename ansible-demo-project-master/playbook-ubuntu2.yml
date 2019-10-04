@@ -1,0 +1,6 @@
+---
+- hosts: ubuntu2
+  become: true
+  roles:
+    - basic_role
+    - zshell

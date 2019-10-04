@@ -1,0 +1,27 @@
+---
+- name: ZSHELL PACKAGE INSTALLATION
+  package:
+    name:
+      - zsh
+    state: present
+    update_cache: yes
+
+- name: CLONING OH MY ZSH FROM THE GIT REPO
+  git:    
+    repo: 'https://github.com/robbyrussell/oh-my-zsh.git'
+    dest: ~/.oh-my-zsh
+  become_user: vagrant
+
+- name: COPYING DEFAULT .zshrc CONFIG FILE
+  shell: cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+  become_user: vagrant
+
+- name: CHANGING THE OH_MY_ZSH THEME
+  replace:
+    path: ~/.zshrc
+    regexp: 'ZSH_THEME="robbyrussell"'
+    replace: 'ZSH_THEME="agnoster"'
+  become_user: vagrant
+
+- name: CHANGING THE VAGRANT USER'S SHELL TO USE ZSH
+  shell: chsh -s /bin/zsh vagrant
